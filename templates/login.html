@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Login Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .label1
+        {
+            margin-left: 5px;
+            font-family: "Times New Roman", Times, serif; 
+        }
+        .label2{
+            font-family: "Times New Roman", Times, serif; 
+        }
+        .heading {
+            font-weight: bold;
+        }
+        .div1
+        {
+            display: flex;
+            background-color: antiquewhite;
+            justify-content: center;    
+            align-items: center;
+            height: 100vh;
+        }
+        .div2
+        {
+            display: flex;
+            justify-content: center;
+        }
+        .div3
+        {
+            background-color: rgb(100, 129, 192);
+            display: flex;
+            justify-content: center; 
+            align-items: center;  
+            height: 100vh;         
+        }
+        .btn1
+        {
+            justify-content: center;
+            width: 40%;
+        }
+        .btn2
+        {
+            width: 100%;
+            justify-content: center;
+        }
+        .flexrow{
+            display: flex;
+        }
+        .flexbox{
+            display: flex;
+        }
+        .flexcolumn{
+            width: 55%;
+        }
+    </style>
+</head>
+<body>
+    <form method="post" action="">
+    {% csrf_token %}
+    <div class="flexbox label2">
+            <div class="col-sm-8 div1">
+                <div class="flex-column flexcolumn">
+            <h2 align="center" class="heading">Student Login Here</h2>
+            <h3 align="center" style="color: red;">{{ Msg }}</h3>
+            <div class="form-floating mb-3 mt-3">
+                <input type="text" class="form-control" id="username" placeholder="UserName" name="txtName">
+                <label for="username" class="label1">User Name:</label>
+            </div>
+            <div class="form-floating mb-3 mt-3">        
+                <input type="password" class="form-control" id="password" placeholder="Password" name="txtPassword">
+                <label for="password" class="label1">Password:</label>
+            </div>
+            <p><a href="{% url 'forgot_password' %}">Forgot Password?</a></p>    
+            <div class="div2">    
+                <input type="submit" class="btn btn-outline-dark btn1" name="btnSub" value="Login">
+            </div>
+        </div>
+    </div>  
+        <div class="col-sm-4"> 
+            <div class="flex-column div3">   
+                <h2 class="heading">New Here?</h2>
+                <p class="heading">Sign Up and Discover Something New</p>    
+                <a href="{% url 'register' %}"><input type="button" class="btn btn-outline-dark btn2 mb-3" value="Sign Up"></a>
+                <a href="{% url 'home' %}"><input type="button" class="btn btn-outline-dark btn2" value="Home"></a>
+            </div>        
+        </div>        
+    </div>   
+        </form>
+    </body>
+</html>

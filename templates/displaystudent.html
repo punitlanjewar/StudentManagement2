@@ -1,0 +1,33 @@
+{% extends 'teachernavbar.html' %}
+
+{% block content %}
+<style>
+   .table1{
+        width: 80%;
+        border: 2px solid white;
+    }
+    .label1{
+        font-family: "Times New Roman";
+    }
+</style>
+<br>
+<h2 align="center" class="label1"><b>Student Data</b></h2><br>
+    <table align="center" class="table table-dark table-striped table1 label1">
+        <tr>
+            <th>Id</th>
+            <th>Student Name</th>
+            <th>Student Contact</th>
+            <th>Student Email</th>
+            <th>Student Address</th>
+        </tr>
+        {% for i in StudentData %}
+            <tr>
+                <td>{{ i.id }}</td>
+                <td>{{ i.stud_name }}</td>
+                <td>{{ i.stud_contact }}</td>
+                <td>{{ i.stud_email }}</td>
+                <td>{{ i.stud_address }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
